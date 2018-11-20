@@ -11936,7 +11936,7 @@ a.anchor-link {
 </div></div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[22]:</div>
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">sqlalchemy</span>
@@ -11963,25 +11963,6 @@ a.anchor-link {
 </pre></div>
 
 </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>The sql extension is already loaded. To reload it, use:
-  %reload_ext sql
-</pre>
-</div>
-</div>
-
 </div>
 </div>
 
@@ -12102,7 +12083,7 @@ Indexes:
 </div><div class="fragment">
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[23]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="o">%</span><span class="k">sql</span> EXPLAIN SELECT * FROM pgbench_accounts WHERE abalance &gt; 0
@@ -12238,7 +12219,7 @@ Seq Scan on pgbench_accounts  (cost=0.00..29171.00 rows=125271 width=97)
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[52]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">r</span> <span class="o">=</span> <span class="o">%</span><span class="k">sql</span> EXPLAIN SELECT * FROM pgbench_accounts WHERE abalance &gt; 0
@@ -12272,7 +12253,7 @@ Seq Scan on pgbench_accounts  (cost=0.00..29171.00 rows=125271 width=97)
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[53]:</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">r</span> <span class="o">=</span> <span class="o">%</span><span class="k">sql</span> EXPLAIN ANALYZE SELECT * FROM pgbench_accounts WHERE abalance &gt; 0
@@ -12294,11 +12275,11 @@ Seq Scan on pgbench_accounts  (cost=0.00..29171.00 rows=125271 width=97)
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre> * postgresql:///dbtest
-Seq Scan on pgbench_accounts  (cost=0.00..29171.00 rows=125271 width=97) (actual time=0.015..102.513 rows=122394 loops=1)
+Seq Scan on pgbench_accounts  (cost=0.00..29171.00 rows=125271 width=97) (actual time=0.011..83.090 rows=122394 loops=1)
   Filter: (abalance &gt; 0)
   Rows Removed by Filter: 877606
-Planning time: 0.057 ms
-Execution time: 106.263 ms
+Planning time: 0.042 ms
+Execution time: 86.254 ms
 </pre>
 </div>
 </div>
@@ -12326,7 +12307,7 @@ Execution time: 106.263 ms
 </div><div class="fragment">
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[75]:</div>
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">sql</span> CREATE OR REPLACE VIEW positive_accounts AS SELECT * FROM pgbench_accounts WHERE abalance &gt; 0;
@@ -12352,11 +12333,11 @@ Execution time: 106.263 ms
 <div class="output_subarea output_stream output_stdout output_text">
 <pre> * postgresql:///dbtest
  * postgresql:///dbtest
-Seq Scan on pgbench_accounts  (cost=0.00..29171.00 rows=125271 width=97) (actual time=0.012..77.139 rows=122394 loops=1)
+Seq Scan on pgbench_accounts  (cost=0.00..29171.00 rows=125271 width=97) (actual time=0.008..76.879 rows=122394 loops=1)
   Filter: (abalance &gt; 0)
   Rows Removed by Filter: 877606
-Planning time: 0.059 ms
-Execution time: 80.214 ms
+Planning time: 0.068 ms
+Execution time: 80.022 ms
 </pre>
 </div>
 </div>
@@ -12401,7 +12382,7 @@ Execution time: 80.214 ms
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[24]:</div>
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
@@ -12431,7 +12412,7 @@ CREATE TEMPORARY TABLE pgbench_accounts_indexed AS SELECT * FROM pgbench_account
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[24]:</div>
+<div class="prompt output_prompt">Out[9]:</div>
 
 
 
@@ -12457,7 +12438,7 @@ CREATE TEMPORARY TABLE pgbench_accounts_indexed AS SELECT * FROM pgbench_account
 </div><div class="fragment">
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[25]:</div>
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">time</span>
@@ -12479,15 +12460,15 @@ CREATE TEMPORARY TABLE pgbench_accounts_indexed AS SELECT * FROM pgbench_account
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre> * postgresql:///dbtest
-CPU times: user 3.91 ms, sys: 0 ns, total: 3.91 ms
-Wall time: 561 ms
+CPU times: user 2.44 ms, sys: 1.29 ms, total: 3.73 ms
+Wall time: 630 ms
 </pre>
 </div>
 </div>
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[25]:</div>
+<div class="prompt output_prompt">Out[10]:</div>
 
 
 
@@ -12513,7 +12494,7 @@ Wall time: 561 ms
 </div></div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[26]:</div>
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="o">%</span><span class="k">sql</span> EXPLAIN ANALYZE SELECT * FROM pgbench_accounts_indexed WHERE abalance &gt; 0
@@ -12537,13 +12518,13 @@ Wall time: 561 ms
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre> * postgresql:///dbtest
-Bitmap Heap Scan on pgbench_accounts_indexed  (cost=3590.26..24150.92 rows=333333 width=352) (actual time=12.980..74.161 rows=122394 loops=1)
+Bitmap Heap Scan on pgbench_accounts_indexed  (cost=3590.26..24150.92 rows=333333 width=352) (actual time=11.344..85.087 rows=122394 loops=1)
   Recheck Cond: (abalance &gt; 0)
   Heap Blocks: exact=16383
-  -&gt;  Bitmap Index Scan on pgbench_accounts_indexed_abalance  (cost=0.00..3506.92 rows=333333 width=0) (actual time=10.759..10.759 rows=122394 loops=1)
+  -&gt;  Bitmap Index Scan on pgbench_accounts_indexed_abalance  (cost=0.00..3506.92 rows=333333 width=0) (actual time=9.077..9.077 rows=122394 loops=1)
         Index Cond: (abalance &gt; 0)
-Planning time: 0.287 ms
-Execution time: 77.481 ms
+Planning time: 0.137 ms
+Execution time: 88.726 ms
 </pre>
 </div>
 </div>
@@ -12551,10 +12532,26 @@ Execution time: 77.481 ms
 </div>
 </div>
 
-</div></section><section>
+</div><aside class="notes">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>Rychlejší vyhodnocení pro specifické dotazy<ul>
+<li>0.048 ms vs 88.726 ms</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+</aside></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[41]:</div>
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="o">%</span><span class="k">sql</span> EXPLAIN ANALYZE SELECT * FROM pgbench_accounts_indexed WHERE abalance &gt; 999999999
@@ -12577,12 +12574,12 @@ Execution time: 77.481 ms
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre> * postgresql:///dbtest
-Bitmap Heap Scan on pgbench_accounts_indexed  (cost=3590.26..24150.92 rows=333333 width=352) (actual time=0.013..0.014 rows=0 loops=1)
+Bitmap Heap Scan on pgbench_accounts_indexed  (cost=3590.26..24150.92 rows=333333 width=352) (actual time=0.026..0.026 rows=0 loops=1)
   Recheck Cond: (abalance &gt; 999999999)
-  -&gt;  Bitmap Index Scan on pgbench_accounts_indexed_abalance  (cost=0.00..3506.92 rows=333333 width=0) (actual time=0.012..0.012 rows=0 loops=1)
+  -&gt;  Bitmap Index Scan on pgbench_accounts_indexed_abalance  (cost=0.00..3506.92 rows=333333 width=0) (actual time=0.024..0.024 rows=0 loops=1)
         Index Cond: (abalance &gt; 999999999)
-Planning time: 0.056 ms
-Execution time: 0.037 ms
+Planning time: 0.055 ms
+Execution time: 0.048 ms
 </pre>
 </div>
 </div>
@@ -12593,7 +12590,7 @@ Execution time: 0.037 ms
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[40]:</div>
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="o">%</span><span class="k">sql</span> EXPLAIN ANALYZE SELECT * FROM pgbench_accounts WHERE abalance &gt; 999999999
@@ -12616,14 +12613,14 @@ Execution time: 0.037 ms
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre> * postgresql:///dbtest
-Gather  (cost=1000.00..22881.73 rows=24 width=97) (actual time=45.239..49.543 rows=0 loops=1)
+Gather  (cost=1000.00..22881.73 rows=24 width=97) (actual time=39.964..45.237 rows=0 loops=1)
   Workers Planned: 2
   Workers Launched: 2
-  -&gt;  Parallel Seq Scan on pgbench_accounts  (cost=0.00..21879.33 rows=10 width=97) (actual time=43.068..43.068 rows=0 loops=3)
+  -&gt;  Parallel Seq Scan on pgbench_accounts  (cost=0.00..21879.33 rows=10 width=97) (actual time=38.276..38.276 rows=0 loops=3)
         Filter: (abalance &gt; 999999999)
         Rows Removed by Filter: 333333
-Planning time: 0.072 ms
-Execution time: 49.570 ms
+Planning time: 0.046 ms
+Execution time: 45.260 ms
 </pre>
 </div>
 </div>
@@ -12654,7 +12651,7 @@ Execution time: 49.570 ms
 </div><div class="fragment">
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[36]:</div>
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">explain</span><span class="p">(</span><span class="s2">&quot;SELECT * FROM positive_accounts WHERE abalance &lt; 0&quot;</span><span class="p">)</span>
@@ -12688,7 +12685,7 @@ Execution time: 49.570 ms
 </div></div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[61]:</div>
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="o">%</span><span class="k">sql</span> EXPLAIN SELECT * FROM pgbench_accounts_indexed WHERE abalance &lt; 0 AND abalance &gt; 0
@@ -12740,7 +12737,7 @@ Bitmap Heap Scan on pgbench_accounts_indexed  (cost=67.08..4691.75 rows=5000 wid
 </div><div class="fragment">
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[62]:</div>
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="o">%</span><span class="k">sql</span> EXPLAIN ANALYZE SELECT * FROM pgbench_accounts WHERE aid = 445
@@ -12764,10 +12761,10 @@ Bitmap Heap Scan on pgbench_accounts_indexed  (cost=67.08..4691.75 rows=5000 wid
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre> * postgresql:///dbtest
-Index Scan using pgbench_accounts_pkey on pgbench_accounts  (cost=0.42..2.64 rows=1 width=97) (actual time=0.017..0.018 rows=1 loops=1)
+Index Scan using pgbench_accounts_pkey on pgbench_accounts  (cost=0.42..2.64 rows=1 width=97) (actual time=0.025..0.026 rows=1 loops=1)
   Index Cond: (aid = 445)
-Planning time: 0.071 ms
-Execution time: 0.038 ms
+Planning time: 0.114 ms
+Execution time: 0.053 ms
 </pre>
 </div>
 </div>
@@ -12813,7 +12810,7 @@ WHERE a.id = b.aid AND c.bid = b.id</code></pre>
 </div><div class="fragment">
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[66]:</div>
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">sql</span> SHOW join_collapse_limit
@@ -12840,7 +12837,7 @@ WHERE a.id = b.aid AND c.bid = b.id</code></pre>
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[66]:</div>
+<div class="prompt output_prompt">Out[17]:</div>
 
 
 
@@ -12871,7 +12868,7 @@ WHERE a.id = b.aid AND c.bid = b.id</code></pre>
 </div></div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[69]:</div>
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">sql</span> SET join_collapse_limit = 10
@@ -12900,7 +12897,7 @@ WHERE a.id = b.aid AND c.bid = b.id</code></pre>
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[69]:</div>
+<div class="prompt output_prompt">Out[18]:</div>
 
 
 
@@ -12931,7 +12928,7 @@ WHERE a.id = b.aid AND c.bid = b.id</code></pre>
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[70]:</div>
+<div class="prompt input_prompt">In&nbsp;[19]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
@@ -12964,7 +12961,7 @@ SELECT aid, tid, pgbench_branches.bid, tbalance, delta, mtime, abalance
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[70]:</div>
+<div class="prompt output_prompt">Out[19]:</div>
 
 
 
@@ -12990,7 +12987,7 @@ SELECT aid, tid, pgbench_branches.bid, tbalance, delta, mtime, abalance
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[73]:</div>
+<div class="prompt input_prompt">In&nbsp;[20]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">explain</span><span class="p">(</span><span class="s2">&quot;SELECT * FROM transactions&quot;</span><span class="p">)</span>
@@ -13033,7 +13030,7 @@ SELECT aid, tid, pgbench_branches.bid, tbalance, delta, mtime, abalance
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[72]:</div>
+<div class="prompt input_prompt">In&nbsp;[21]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">explain_analyze</span><span class="p">(</span><span class="s2">&quot;SELECT tid FROM transactions&quot;</span><span class="p">)</span>
@@ -13053,9 +13050,9 @@ SELECT aid, tid, pgbench_branches.bid, tbalance, delta, mtime, abalance
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Seq Scan on pgbench_history  (cost=0.00..4587.31 rows=280131 width=4) (actual time=0.020..24.504 rows=280131 loops=1)
-Planning time: 0.215 ms
-Execution time: 31.925 ms
+<pre>Seq Scan on pgbench_history  (cost=0.00..4587.31 rows=280131 width=4) (actual time=0.008..26.226 rows=280131 loops=1)
+Planning time: 0.090 ms
+Execution time: 33.664 ms
 </pre>
 </div>
 </div>
@@ -13083,7 +13080,7 @@ Execution time: 31.925 ms
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[98]:</div>
+<div class="prompt input_prompt">In&nbsp;[22]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
@@ -13118,7 +13115,7 @@ SELECT val, has_money(val) FROM (VALUES (-5), (887), (1000000)) vals(val);
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[98]:</div>
+<div class="prompt output_prompt">Out[22]:</div>
 
 
 
@@ -13161,7 +13158,7 @@ SELECT val, has_money(val) FROM (VALUES (-5), (887), (1000000)) vals(val);
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[100]:</div>
+<div class="prompt input_prompt">In&nbsp;[23]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="o">%</span><span class="k">sql</span> EXPLAIN SELECT * FROM positive_accounts WHERE has_money(abalance) = &#39;oh boy!&#39;;
@@ -13240,7 +13237,7 @@ Seq Scan on pgbench_accounts  (cost=0.00..36671.00 rows=626 width=97)
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[150]:</div>
+<div class="prompt input_prompt">In&nbsp;[24]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="o">%</span><span class="k">sql</span> EXPLAIN SELECT * FROM pgbench_accounts JOIN pgbench_branches USING(bid) WHERE bbalance &lt; -50000 AND aid &gt; 720001
@@ -13289,7 +13286,7 @@ Hash Join  (cost=1.57..12353.82 rows=55964 width=457)
 </div><div class="fragment">
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[165]:</div>
+<div class="prompt input_prompt">In&nbsp;[25]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
@@ -13318,7 +13315,7 @@ CREATE INDEX IF NOT EXISTS pgbench_accounts_indexed_bid ON pgbench_accounts_inde
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[165]:</div>
+<div class="prompt output_prompt">Out[25]:</div>
 
 
 
@@ -13344,7 +13341,7 @@ CREATE INDEX IF NOT EXISTS pgbench_accounts_indexed_bid ON pgbench_accounts_inde
 </div></div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[166]:</div>
+<div class="prompt input_prompt">In&nbsp;[26]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="o">%</span><span class="k">sql</span> EXPLAIN SELECT * FROM pgbench_accounts_indexed JOIN pgbench_branches USING(bid) WHERE bbalance &lt; -50000 AND aid &gt; 720001
@@ -13394,7 +13391,7 @@ Nested Loop  (cost=53.74..8351.82 rows=3333 width=712)
 </div><div class="fragment">
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[167]:</div>
+<div class="prompt input_prompt">In&nbsp;[27]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
@@ -13424,7 +13421,7 @@ CREATE INDEX IF NOT EXISTS pgbench_accounts_indexed_aid_bid ON pgbench_accounts_
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[167]:</div>
+<div class="prompt output_prompt">Out[27]:</div>
 
 
 
@@ -13450,7 +13447,7 @@ CREATE INDEX IF NOT EXISTS pgbench_accounts_indexed_aid_bid ON pgbench_accounts_
 </div></div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[168]:</div>
+<div class="prompt input_prompt">In&nbsp;[28]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="o">%</span><span class="k">sql</span> EXPLAIN SELECT * FROM pgbench_accounts_indexed JOIN pgbench_branches USING(bid) WHERE bbalance &lt; -50000 AND aid &gt; 720001
@@ -13497,7 +13494,7 @@ Nested Loop  (cost=0.42..11575.31 rows=3333 width=712)
 </div><div class="fragment">
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[172]:</div>
+<div class="prompt input_prompt">In&nbsp;[29]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="o">%</span><span class="k">sql</span> EXPLAIN SELECT * FROM pgbench_accounts_indexed JOIN pgbench_branches USING(bid) WHERE bbalance &lt; 500000 AND aid &gt; 720001
@@ -13559,7 +13556,7 @@ Hash Join  (cost=3591.48..25045.69 rows=13333 width=712)
 </div><div class="fragment">
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[173]:</div>
+<div class="prompt input_prompt">In&nbsp;[30]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="o">%</span><span class="k">sql</span> EXPLAIN SELECT * FROM pgbench_accounts_indexed WHERE bid &lt; 10
@@ -13606,7 +13603,7 @@ Seq Scan on pgbench_accounts_indexed  (cost=0.00..28894.00 rows=333333 width=352
 </div><div class="fragment">
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[179]:</div>
+<div class="prompt input_prompt">In&nbsp;[31]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">sql</span> DROP INDEX IF EXISTS pgbench_accounts_indexed_function
@@ -13644,7 +13641,7 @@ Seq Scan on pgbench_accounts_indexed  (cost=0.00..33894.00 rows=5000 width=352)
 </div></div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[180]:</div>
+<div class="prompt input_prompt">In&nbsp;[32]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">sql</span> CREATE INDEX pgbench_accounts_indexed_function ON pgbench_accounts_indexed (has_money(abalance))
@@ -13671,7 +13668,7 @@ Seq Scan on pgbench_accounts_indexed  (cost=0.00..33894.00 rows=5000 width=352)
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[180]:</div>
+<div class="prompt output_prompt">Out[32]:</div>
 
 
 
@@ -13697,7 +13694,7 @@ Seq Scan on pgbench_accounts_indexed  (cost=0.00..33894.00 rows=5000 width=352)
 </div><div class="fragment">
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[182]:</div>
+<div class="prompt input_prompt">In&nbsp;[33]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="o">%</span><span class="k">sql</span> EXPLAIN SELECT * FROM pgbench_accounts_indexed WHERE has_money(abalance) = &#39;oh boy!&#39;
@@ -13722,9 +13719,9 @@ Seq Scan on pgbench_accounts_indexed  (cost=0.00..33894.00 rows=5000 width=352)
 <div class="output_subarea output_stream output_stdout output_text">
 <pre> * postgresql:///dbtest
 Bitmap Heap Scan on pgbench_accounts_indexed  (cost=60.08..4697.25 rows=5000 width=352)
-  Recheck Cond: (CASE WHEN (abalance &lt;= 0) THEN &#39;no chance&#39;::text WHEN (abalance &gt; 10000) THEN &#39;oh boy!&#39;::text ELSE &#39;boring&#39;::text END = &#39;oh boy!&#39;::text)
+  Recheck Cond: ((CASE WHEN (abalance &lt;= 0) THEN &#39;no chance&#39;::text WHEN (abalance &gt; 10000) THEN &#39;oh boy!&#39;::text ELSE &#39;boring&#39;::text END)::text = &#39;oh boy!&#39;::text)
   -&gt;  Bitmap Index Scan on pgbench_accounts_indexed_function  (cost=0.00..58.83 rows=5000 width=0)
-        Index Cond: (CASE WHEN (abalance &lt;= 0) THEN &#39;no chance&#39;::text WHEN (abalance &gt; 10000) THEN &#39;oh boy!&#39;::text ELSE &#39;boring&#39;::text END = &#39;oh boy!&#39;::text)
+        Index Cond: ((CASE WHEN (abalance &lt;= 0) THEN &#39;no chance&#39;::text WHEN (abalance &gt; 10000) THEN &#39;oh boy!&#39;::text ELSE &#39;boring&#39;::text END)::text = &#39;oh boy!&#39;::text)
 </pre>
 </div>
 </div>
@@ -13743,7 +13740,7 @@ Bitmap Heap Scan on pgbench_accounts_indexed  (cost=60.08..4697.25 rows=5000 wid
 </div><div class="fragment">
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[184]:</div>
+<div class="prompt input_prompt">In&nbsp;[34]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="o">%</span><span class="k">sql</span> EXPLAIN SELECT * FROM pgbench_accounts_indexed WHERE ((CASE WHEN (abalance &lt;= 0) THEN &#39;no chance&#39;::text WHEN (abalance &gt; 10000) THEN &#39;oh boy!&#39;::text ELSE &#39;boring&#39;::text END)::text = &#39;oh boy!&#39;::text)
@@ -13789,7 +13786,7 @@ Bitmap Heap Scan on pgbench_accounts_indexed  (cost=60.08..4697.25 rows=5000 wid
 </div><div class="fragment">
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[42]:</div>
+<div class="prompt input_prompt">In&nbsp;[35]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="o">%</span><span class="k">sql</span> EXPLAIN ANALYZE SELECT COUNT(*) FROM pgbench_accounts WHERE abalance &gt; 999999999
@@ -13812,16 +13809,16 @@ Bitmap Heap Scan on pgbench_accounts_indexed  (cost=60.08..4697.25 rows=5000 wid
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre> * postgresql:///dbtest
-Finalize Aggregate  (cost=22879.57..22879.58 rows=1 width=8) (actual time=43.819..43.819 rows=1 loops=1)
-  -&gt;  Gather  (cost=22879.36..22879.57 rows=2 width=8) (actual time=43.765..48.247 rows=3 loops=1)
+Finalize Aggregate  (cost=22879.57..22879.58 rows=1 width=8) (actual time=36.164..36.164 rows=1 loops=1)
+  -&gt;  Gather  (cost=22879.36..22879.57 rows=2 width=8) (actual time=36.109..40.047 rows=3 loops=1)
         Workers Planned: 2
         Workers Launched: 2
-        -&gt;  Partial Aggregate  (cost=21879.36..21879.37 rows=1 width=8) (actual time=41.217..41.218 rows=1 loops=3)
-              -&gt;  Parallel Seq Scan on pgbench_accounts  (cost=0.00..21879.33 rows=10 width=0) (actual time=41.213..41.213 rows=0 loops=3)
+        -&gt;  Partial Aggregate  (cost=21879.36..21879.37 rows=1 width=8) (actual time=34.370..34.370 rows=1 loops=3)
+              -&gt;  Parallel Seq Scan on pgbench_accounts  (cost=0.00..21879.33 rows=10 width=0) (actual time=34.364..34.364 rows=0 loops=3)
                     Filter: (abalance &gt; 999999999)
                     Rows Removed by Filter: 333333
-Planning time: 0.071 ms
-Execution time: 48.293 ms
+Planning time: 0.110 ms
+Execution time: 40.116 ms
 </pre>
 </div>
 </div>
@@ -13934,6 +13931,21 @@ Execution time: 48.293 ms
 <li>Rozdělit na části</li>
 <li>Představit si, jak by se dal výsledek spočítat</li>
 </ol>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Cena-indexu">Cena indexu<a class="anchor-link" href="#Cena-indexu">&#182;</a></h1><ul>
+<li>Vytváření trvá</li>
+<li>Zpomaluje <code>INSERT</code> a <code>UPDATE</code><ul>
+<li>Pokud nahrávám více dat, index vytvořit až po nahrání</li>
+</ul>
+</li>
+</ul>
 
 </div>
 </div>
